@@ -16,72 +16,57 @@ Mfr. Part No.
 5 In stock - FREE next working day delivery available
 
 
-Molex, Mini-Fit Jr Receptacle Connector Housing, 4.2mm Pitch, 2 Way, 2 Row
-£0.278
+Bourns, CAY16 10kΩ ±5% Isolated Resistor Array, 4 Resistors, 0.25W total, 1206 (3216M), Convex
+£0.034
 Each
-£1.39
+£1.70
 Total
 RS Stock No.
-4841748
+5225585
 Mfr. Part No.
-39-01-2020
+CAY16-103J4LF
 −
-5
+50
 +
-5 In stock - FREE next working day delivery available
+1 Available to back order for despatch 26/06/2023
 
 
-Molex, Mini-Fit Jr Female Connector Housing, 4.2mm Pitch, 4 Way, 2 Row
-£0.29
+Bourns, H-815, SMT 18 Resistor Kit, with 9 pieces, 10 Ω → 2MΩ
+£30.40
 Each
-£1.45
+£30.40
 Total
 RS Stock No.
-4841754
+7681959
 Mfr. Part No.
-39-01-2040
+H-815
 −
-5
+1
 +
-5 In stock - FREE next working day delivery available
+200 In stock - FREE next working day delivery available
 
 
-Molex, Mini-Fit Jr Receptacle Connector Housing, 4.2mm Pitch, 6 Way, 2 Row
-£0.372
+Bourns, 4600X 4.7kΩ ±2% Bussed Resistor Array, 8 Resistors, 1.13W total, SIP, Through Hole
+£0.129
 Each
-£1.86
+£25.80
 Total
 RS Stock No.
-4841760
+1673310
 Mfr. Part No.
-39-01-2060
+4609X-101-472LF
 −
-5
+200
 +
-5 In stock - FREE next working day delivery available
+1 In stock - FREE next working day delivery available
 
 
-Molex, Mini-Fit Jr Plug Connector Housing, 4.2mm Pitch, 2 Way, 2 Row
-£0.372
+Nova, CBR-14 Metal Film, Through Hole 144 Resistor Kit, with 3080 pieces, 1 Ω → 10MΩ
+£200.07
 Each
-£1.86
+£200.07
 Total
 RS Stock No.
-4841811
+1562587
 Mfr. Part No.
-39-01-2021
-−
-5
-+
-5 In stock - FREE next working day delivery available
-
-
-Molex, Mini-Fit Jr Plug Connector Housing, 4.2mm Pitch, 4 Way, 2 Row
-£0.348
-Each
-£1.74
-Total
-RS Stock No.
-4841827
-Mfr. Part No.
-39-01-2041
+CBR-14

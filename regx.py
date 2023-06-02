@@ -24,17 +24,23 @@ class MyGrid(Widget):
     def btn(self):
         x = self.name.text
         
-        # x = 'a few unexpected words are to be expected'
-        x = re.sub('^(?<!\S)\d(?!\S)(.*?)(available\n)$', "dfffffg", x) # https://www.youtube.com/watch?v=p_6ZhMjh__4
-        # print(x)
+        # re.groups with re.compile
+        pattern = re.compile(r"(?<=Bourns).*") # https://www.youtube.com/watch?v=p_6ZhMjh__4
+        matches = pattern.finditer(x) 
+        for match in matches:
+            print("Bourns" + match.group(0))
         
-        # x = re.findall('^(?<!\S)\d(?!\S)(.*?)(available\n)$', x)
-        print(x)
-        # print(type(x))
+        # # re.compile with findall - [], finditer returns first occurance
+        # pattern = re.compile(r"(?<=Molex).*")
+        # print(pattern.findall(x))
         
-
-        # print("Name:", self.name.text)
-        # self.name.text = ""
+        # # re.search with groupS w/o index = tuple
+        # pattern = re.search("(?<=Molex).*", x)
+        # print(pattern.groups())            
+        
+        # # re.search with group with index = string
+        # pattern = re.search("(?<=Bourns).*", x)
+        # print(pattern.group(1))        
 
 class MyApp(App):
     def build(self):
@@ -43,3 +49,4 @@ class MyApp(App):
 
 if __name__ == "__main__":
     MyApp().run()
+    
