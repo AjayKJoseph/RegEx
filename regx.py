@@ -7,10 +7,11 @@ from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 import re
-
+from kivy.properties import StringProperty
 
 class MyGrid(Widget):
     name = ObjectProperty(None)
+    urs = StringProperty("Custom text for Label/Button/TextInput")
     
     def btn(self):
         x = self.name.text
