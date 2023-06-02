@@ -8,11 +8,19 @@ from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 import re
 from kivy.properties import StringProperty
+import os
+
 
 class MyGrid(Widget):
-    name = ObjectProperty(None)
-    urs = StringProperty("Custom text for Label/Button/TextInput")
-    
+    if os.path.exists("basketList.txt"):
+        with open('basketList.txt') as txtFile:
+            test = txtFile.read()       
+            urs = StringProperty(test)
+    else:
+        urs = StringProperty()
+        
+    # name = ObjectProperty(None)
+        
     def btn(self):
         x = self.name.text
         
