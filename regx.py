@@ -11,7 +11,6 @@ import re
 
 class MyGrid(Widget):
     name = ObjectProperty(None)
-    # email = ObjectProperty(None)
     
     def btn(self):
         x = self.name.text
@@ -27,7 +26,6 @@ class MyGrid(Widget):
 
         # print("Name:", self.name.text)
         # self.name.text = ""
-        # self.email.text = ""
 
 class MyApp(App):
     def build(self):
