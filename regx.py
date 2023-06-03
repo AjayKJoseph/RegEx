@@ -23,26 +23,55 @@ class MyGrid(Widget):
         
         
     def btn(self):
-        x = self.name.text
-                
-        patrn = r"(?<=Bourns).*"
-        # re.groups with re.compile
-        pattern = re.compile(patrn) # https://www.youtube.com/watch?v=p_6ZhMjh__4
-        matches = pattern.finditer(x) 
-        for match in matches:
-            print("Bourns" + match.group(0))
+        txtInput = self.name.text
+        
+        # https://youtu.be/_uPsxnIg0uU?t=128 - look ahead/behind or leading/trailing        
+        # patrn = r"(?<=Bourns).*" - Works to identify the line with keyword
+        patrn = r"(Each)|(−)|(\+)|(Total)|((£).*)"
+                #  ^^^^^^ - look for keyword "Each" OR
+                #        ^^^^ - dash symbol OR
+                #            ^^^^^ - "+" symbol OR
+                #                 ^^^^^^^^ - keyword "Total" OR
+                #                         ^^^^^^^^ - "£" and until new line OR
+                #                                 ^^^^ - any new line characters (optional)
+        
+        # https://youtu.be/_uPsxnIg0uU?t=128 - look ahead/behind or leading/trailing
+        # https://betterprogramming.pub/demystifying-look-ahead-and-look-behind-in-regex-4a604f99fb8c
+        patrn2 = r".*(?=available)" # Positive look-ahead 
+
+        #################################################################################        
+        # # re.groups with re.compile
+        # pattern = re.compile(patrn) # https://www.youtube.com/watch?v=p_6ZhMjh__4
+        # matches = pattern.finditer(txtInput) 
+        # for match in matches:
+        #     print("Bourns" + match.group(0))
+        #################################################################################
         
         # # re.compile with findall - [], finditer returns first occurance
         # pattern = re.compile(r"(?<=Molex).*")
-        # print(pattern.findall(x))
+        # print(pattern.findall(txtInput))
+        #################################################################################
         
         # # re.search with groupS w/o index = tuple
-        # pattern = re.search("(?<=Molex).*", x)
+        # pattern = re.search("(?<=Molex).*", txtInput)
         # print(pattern.groups())            
+        #################################################################################
         
         # # re.search with group with index = string
-        # pattern = re.search("(?<=Bourns).*", x)
-        # print(pattern.group(1))        
+        # pattern = re.search("(?<=Bourns).*", txtInput)
+        # print(pattern.group(1))
+        #################################################################################
+        
+        # re.sub to replace 
+        
+        filteredTxt = re.sub(patrn, "", txtInput)
+        filteredTxt = re.sub(patrn2 + "|available", "", filteredTxt)
+        print(filteredTxt)
+        
+        # re.sub(((\d+ Available).*)|((\d+ In).*), )
+        
+        
+        
 
 class MyApp(App):
     def build(self):
