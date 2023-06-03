@@ -37,7 +37,11 @@ class MyGrid(Widget):
         
         # https://youtu.be/_uPsxnIg0uU?t=128 - look ahead/behind or leading/trailing
         # https://betterprogramming.pub/demystifying-look-ahead-and-look-behind-in-regex-4a604f99fb8c
-        patrn2 = r".*(?=available)" # Positive look-ahead 
+        patrn2 = r".*(?=available)" # Positive look-ahead for "available" keyword
+        patrn3 = r".*(?=(\d+/\d+/\d+))" # Positive look-ahead for date dd/mm/yyyy
+        patrn4 = r"(\d+/\d+/\d+)"
+        patrn5 = r"(No\.\r\n)*"
+        # patrn4 = r"[(\n)\d(\n)+]"
 
         #################################################################################        
         # # re.groups with re.compile
@@ -66,6 +70,11 @@ class MyGrid(Widget):
         
         filteredTxt = re.sub(patrn, "", txtInput)
         filteredTxt = re.sub(patrn2 + "|available", "", filteredTxt)
+        filteredTxt = re.sub(patrn3, "", filteredTxt)
+        filteredTxt = re.sub(patrn4, "", filteredTxt)
+        filteredTxt = re.sub(patrn5, "", filteredTxt)
+        # # https://stackoverflow.com/questions/3711856/how-to-remove-empty-lines-with-or-without-whitespace-in-python
+        filteredTxt = re.sub(r'\s{2}', '', filteredTxt) 
         print(filteredTxt)
         
         # re.sub(((\d+ Available).*)|((\d+ In).*), )
