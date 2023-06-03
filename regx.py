@@ -9,23 +9,25 @@ from kivy.properties import ObjectProperty
 import re
 from kivy.properties import StringProperty
 import os
+import unicodedata # https://youtu.be/Dkh0nFoEwLs?t=638 - not useful
 
 
 class MyGrid(Widget):
     if os.path.exists("basketList.txt"):
-        with open('basketList.txt') as txtFile:
+        # https://docs.python.org/3/howto/unicode.html - Reading Unicode from a file
+        with open('basketList.txt', encoding='utf-8') as txtFile: 
             test = txtFile.read()       
             urs = StringProperty(test)
     else:
         urs = StringProperty()
         
-    # name = ObjectProperty(None)
         
     def btn(self):
         x = self.name.text
-        
+                
+        patrn = r"(?<=Bourns).*"
         # re.groups with re.compile
-        pattern = re.compile(r"(?<=Bourns).*") # https://www.youtube.com/watch?v=p_6ZhMjh__4
+        pattern = re.compile(patrn) # https://www.youtube.com/watch?v=p_6ZhMjh__4
         matches = pattern.finditer(x) 
         for match in matches:
             print("Bourns" + match.group(0))
