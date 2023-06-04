@@ -10,9 +10,11 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.textfield import MDTextField
-
+from kivy.lang import Builder
 
 Window.size = (600, 800)
+
+Builder.load_file('myapp.kv')
 
 class MyGrid(Widget):
     if os.path.exists("basketList.txt"):
@@ -46,7 +48,9 @@ class MyGrid(Widget):
         filteredTxt = re.sub(r'\s{2}', '', filteredTxt) 
         
         print(filteredTxt)
-                
+        
+        self.ids.label_output.text = filteredTxt
+        # StringProperty(self.output.text)       
 
 class MyApp(MDApp):
     def build(self):

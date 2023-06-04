@@ -1,19 +1,29 @@
 <MyGrid>:
 
     name: name
+    # output: output
 
-    GridLayout:
+    BoxLayout:
         cols:1
-        size: root.width - 200, root.height -200
-        pos: 100, 100
-
+        orientation: 'vertical'
+        size: root.width, root.height
+        # pos: 100, 500
+        # size_hint_y: 1
 
         TextInput:
             id: name
             multiline:True
             text:root.urs
+            size: 0.5, 1
 
         Button:
             text:"Submit"
             on_press: root.btn()
-            size_hint: 0.2, 0.1
+            pos_hint: {'x': 0.4, 'y':0.5} #https://momentsonline.medium.com/why-widgets-in-the-kivy-gridlayout-are-not-positioning-properly-70f8b405bc3c
+            size_hint: None, None
+            # size: self.width, 50
+        
+        TextInput:
+            id: label_output
+            multiline: True
+            # text:root.outputTxt        

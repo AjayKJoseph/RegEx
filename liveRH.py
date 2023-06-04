@@ -1,8 +1,9 @@
 from kaki.app import App
 from kivy.factory import Factory
 import os
+from kivymd.app import MDApp
 
-class LiveRH(App): # variable class name
+class LiveRH(App, MDApp): # variable class name
     CLASSES = {
         # requires exact main class and file name from .py(main)
         "MyGrid" : "regx" 
