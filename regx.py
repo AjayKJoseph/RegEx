@@ -27,20 +27,18 @@ class MyGrid(Widget):
         
         # https://youtu.be/_uPsxnIg0uU?t=128 - look ahead/behind or leading/trailing        
         # patrn = r"(?<=Bourns).*" - Works to identify the line with keyword
-        patrn = r"(Each)|(−)|(\+)|(Total)|((£).*)"
+        patrn = r"(Each)|(Total)|((£).*)"
                 #  ^^^^^^ - look for keyword "Each" OR
-                #        ^^^^ - dash symbol OR
-                #            ^^^^^ - "+" symbol OR
-                #                 ^^^^^^^^ - keyword "Total" OR
-                #                         ^^^^^^^^ - "£" and until new line OR
-                #                                 ^^^^ - any new line characters (optional)
+                #         ^^^^^^^ - keyword "Total" OR
+                #                 ^^^ - "£" and until new line OR
         
         # https://youtu.be/_uPsxnIg0uU?t=128 - look ahead/behind or leading/trailing
         # https://betterprogramming.pub/demystifying-look-ahead-and-look-behind-in-regex-4a604f99fb8c
-        patrn2 = r".*(?=available)" # Positive look-ahead for "available" keyword
-        patrn3 = r".*(?=(\d+/\d+/\d+))" # Positive look-ahead for date dd/mm/yyyy
-        patrn4 = r"(\d+/\d+/\d+)"
-        patrn5 = r"(No\.\r\n)*"
+        patrn2 = r"(Each)|(Total)|((£).*)|(([\b−\b].*)(\n\w+)|([\b+\b]))"
+        patrn3 = r".*(?=available)" # Positive look-ahead for "available" keyword
+        patrn4 = r".*(?=(\d+/\d+/\d+))" # Positive look-ahead for date dd/mm/yyyy
+        patrn5 = r"(\d+/\d+/\d+)"
+        patrn6 = r"(No\.\n)"
         # patrn4 = r"[(\n)\d(\n)+]"
 
         #################################################################################        
@@ -69,10 +67,11 @@ class MyGrid(Widget):
         # re.sub to replace 
         
         filteredTxt = re.sub(patrn, "", txtInput)
-        filteredTxt = re.sub(patrn2 + "|available", "", filteredTxt)
-        filteredTxt = re.sub(patrn3, "", filteredTxt)
+        filteredTxt = re.sub(patrn2, "", filteredTxt)
+        filteredTxt = re.sub(patrn3 + "|available", "\n", filteredTxt)
         filteredTxt = re.sub(patrn4, "", filteredTxt)
         filteredTxt = re.sub(patrn5, "", filteredTxt)
+        filteredTxt = re.sub(patrn6, "No. ", filteredTxt)
         # # https://stackoverflow.com/questions/3711856/how-to-remove-empty-lines-with-or-without-whitespace-in-python
         filteredTxt = re.sub(r'\s{2}', '', filteredTxt) 
         print(filteredTxt)
