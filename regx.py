@@ -37,15 +37,17 @@ class MyGrid(Widget):
         patrn3 = r".*(?=(\d+/\d+/\d+))" # Positive look-ahead for date dd/mm/yyyy
         patrn4 = r"(\d+/\d+/\d+)"
         patrn5 = r"(No\.\n)"
+        patrn6 = r""
         
         
         filteredTxt = re.sub(patrn1, "", txtInput) 
         filteredTxt = re.sub(patrn2 + "|available", "\n", filteredTxt)
         filteredTxt = re.sub(patrn3, "", filteredTxt)
-        filteredTxt = re.sub(patrn4, "", filteredTxt)
+        filteredTxt = re.sub(patrn4, "\n", filteredTxt)
         filteredTxt = re.sub(patrn5, "No. ", filteredTxt)
         # # https://stackoverflow.com/questions/3711856/how-to-remove-empty-lines-with-or-without-whitespace-in-python
         filteredTxt = re.sub(r'\s{2}', '', filteredTxt) 
+        filteredTxt = re.sub(r'^(Mfr).*', '\n', filteredTxt)
         
         print(filteredTxt)
         
